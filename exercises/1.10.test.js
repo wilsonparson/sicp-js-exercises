@@ -1,3 +1,5 @@
+import { describe, expect, test } from "vitest";
+
 // prettier-ignore
 function A(x, y) {
   return y === 0
@@ -115,10 +117,42 @@ function g(n) {
 /**
  * As a mathematical definition of this function, we can say that:
  *
- * h(n) computes 2^(2^n)
+ * {I don't know the answer here}
  *
- * ^^ This isn't the right answer. I can't figure this one out.
  */
 function h(n) {
   return A(2, n);
 }
+
+describe("1.10", () => {
+  test("A(1, 10) === 1024", () => {
+    expect(A(1, 10)).toBe(1024);
+  });
+
+  test("A(2, 4) === 65536", () => {
+    expect(A(2, 4)).toBe(65536);
+  });
+
+  test("A(3, 3) === 65536", () => {
+    expect(A(3, 3)).toBe(65536);
+  });
+
+  test("f(n) computes 2n", () => {
+    expect(f(2)).toBe(4);
+    expect(f(3)).toBe(6);
+  });
+
+  test("g(n) computes 2^n", () => {
+    expect(g(2)).toBe(4);
+    expect(g(3)).toBe(8);
+    expect(g(4)).toBe(16);
+  });
+
+  test("h(n) computes {I'm not sure}", () => {
+    expect(h(0)).toBe(0);
+    expect(h(1)).toBe(2);
+    expect(h(2)).toBe(4);
+    expect(h(3)).toBe(16);
+    expect(h(4)).toBe(65536);
+  });
+});
